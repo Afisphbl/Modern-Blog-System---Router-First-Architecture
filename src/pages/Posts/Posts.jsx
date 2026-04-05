@@ -5,6 +5,7 @@ import "../../components/PostList/PostList.css";
 import { useLoaderData } from "react-router-dom";
 import PostCard from "../../components/PostCard/PostCard";
 import EmptyState from "../../components/EmptyState/EmptyState";
+import { getPosts } from "../../api/postsApi";
 
 function Posts() {
   const posts = useLoaderData();
@@ -42,6 +43,36 @@ function Posts() {
       )}
     </div>
   );
+}
+
+export async function loader({ request }) {
+  const requestUrl = new URL(request.url);
+  const selectedCategory = (
+    requestUrl.searchParams.get("category") || "all"
+  ).toLowerCase();
+  const searchQuery = (requestUrl.searchParams.get("q") || "")
+    .toLowerCase()
+    .trim();
+  const posts = await getPosts();
+
+  let filteredPosts = posts;
+
+  if (selectedCategory !== "all") {
+    filteredPosts = filteredPosts.filter(
+      (post) => post.category?.toLowerCase() === selectedCategory,
+    );
+  }
+
+  if (searchQuery) {
+    filteredPosts = filteredPosts.filter(
+      (post) =>
+        post.title?.toLowerCase().includes(searchQuery) ||
+        post.content?.toLowerCase().includes(searchQuery) ||
+        post.author?.toLowerCase().includes(searchQuery),
+    );
+  }
+
+  return filteredPosts;
 }
 
 export default Posts;

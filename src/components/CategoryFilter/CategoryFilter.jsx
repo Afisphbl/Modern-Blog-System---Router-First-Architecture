@@ -9,6 +9,7 @@ function CategoryFilter() {
   const selectedCategory = (
     searchParams.get("category") || "all"
   ).toLowerCase();
+  const searchQuery = (searchParams.get("q") || "").toLowerCase().trim();
   const isNavigating = state === "loading";
 
   return (
@@ -22,6 +23,7 @@ function CategoryFilter() {
         method="get"
         className={`category-filter-form ${isNavigating ? "navigating" : ""}`}
       >
+        {searchQuery && <input type="hidden" name="q" value={searchQuery} />}
         <button
           type="submit"
           name="category"

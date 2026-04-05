@@ -12,3 +12,15 @@ export async function getPosts() {
     throw error;
   }
 }
+
+export async function getPostById(postId) {
+  try {
+    const res = await fetch(`${url}/posts/${postId}`);
+    if (!res.ok) throw new Error("Something went wrong");
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error(`Error : ${error}`);
+    throw error;
+  }
+}

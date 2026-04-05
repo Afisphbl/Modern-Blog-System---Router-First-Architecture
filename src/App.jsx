@@ -9,6 +9,9 @@ import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import PostDetail, {
   loader as postLoader,
 } from "./pages/PostDetail/PostDetail";
+import CreatePost, {
+  action as createPostAction,
+} from "./pages/CreatePost/CreatePost";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +34,12 @@ const router = createBrowserRouter([
         path: "/posts/:postId",
         element: <PostDetail />,
         loader: postLoader,
+        errorElement: <ErrorMessage />,
+      },
+      {
+        path: "posts/new",
+        element: <CreatePost />,
+        action: createPostAction,
         errorElement: <ErrorMessage />,
       },
       {

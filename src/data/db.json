@@ -29,6 +29,28 @@
       "author": "Sarah",
       "date": "2026-02-15",
       "image": "https://picsum.photos/400/200?random=3"
+    },
+    {
+      "title": "React Project",
+      "author": "Zubeir",
+      "authorId": "123",
+      "category": "career",
+      "imageUrl": "",
+      "content": "React web Designer for Haramaya university in Ethiopia.",
+      "image": "https://picsum.photos/400/200?random=29",
+      "date": "4/5/2026",
+      "id": "WymkuPK"
+    },
+    {
+      "title": "CSS Design",
+      "author": "IsYs",
+      "authorId": "23",
+      "category": "css",
+      "imageUrl": "",
+      "content": "Css app designer",
+      "image": "https://picsum.photos/400/200?random=71",
+      "date": "4/5/2026",
+      "id": "_1mFEPq"
     }
   ],
   "authors": [
@@ -41,6 +63,11 @@
       "id": "2",
       "name": "Sarah",
       "bio": "Full-stack engineer focusing on resilient architecture."
+    },
+    {
+      "name": "IsYs",
+      "bio": "Css app designer",
+      "id": "qbD02Fm"
     }
   ]
 }

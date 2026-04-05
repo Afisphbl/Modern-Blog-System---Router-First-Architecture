@@ -19,3 +19,24 @@ export async function getAuthors({ authorId }) {
     throw error;
   }
 }
+
+export async function sendAuthor(author) {
+  try {
+    const res = await fetch(`${BASE_URL}/authors`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(author),
+    });
+
+    if (!res.ok)
+      throw new Error("Something went wrong when sending the author");
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error(`Error: ${error}`);
+    throw error;
+  }
+}

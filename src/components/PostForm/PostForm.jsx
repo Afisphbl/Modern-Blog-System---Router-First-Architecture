@@ -2,10 +2,10 @@ import React from "react";
 import "./PostForm.css";
 import { Form } from "react-router-dom";
 
-function PostForm() {
+function PostForm({ pageHead = "Create New Post", authorName = true }) {
   return (
     <div className="post-form-container">
-      <h3 className="post-form-title">Create New Post</h3>
+      <h3 className="post-form-title">{pageHead}</h3>
 
       <Form method="POST" className="post-form">
         <div className="form-group">
@@ -24,20 +24,22 @@ function PostForm() {
         </div>
 
         <div className="form-group form-grid">
-          <div>
-            <label htmlFor="post-author-name" className="form-label">
-              Author Name
-            </label>
-            <input
-              type="text"
-              id="post-author-name"
-              name="author"
-              className="form-input"
-              placeholder="John Doe"
-              required
-              title="Please fill out this filled"
-            />
-          </div>
+          {authorName && (
+            <div>
+              <label htmlFor="post-author-name" className="form-label">
+                Author Name
+              </label>
+              <input
+                type="text"
+                id="post-author-name"
+                name="author"
+                className="form-input"
+                placeholder="John Doe"
+                required
+                title="Please fill out this filled"
+              />
+            </div>
+          )}
 
           <div>
             <label htmlFor="post-category" className="form-label">
@@ -68,7 +70,7 @@ function PostForm() {
             <input
               type="text"
               id="image"
-              name="imageUrl"
+              name="image"
               className="form-input"
               placeholder="https://example.com/image.jpg"
             />

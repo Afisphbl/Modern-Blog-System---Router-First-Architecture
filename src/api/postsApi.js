@@ -26,6 +26,25 @@ export async function getPostById(postId) {
   }
 }
 
+export async function updatePost(newPost) {
+  console.log(newPost.id);
+  try {
+    const res = await fetch(`${url}/posts/${newPost.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newPost),
+    });
+    if (!res.ok) throw new Error("Something went wrong when updating the post");
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error(`Error : ${error}`);
+    throw error;
+  }
+}
+
 export async function sendPost(post) {
   try {
     const res = await fetch(`${url}/posts`, {
@@ -45,4 +64,10 @@ export async function sendPost(post) {
     console.error(`Error: ${error}`);
     throw error;
   }
+}
+
+export async function deletePost(id) {
+  await fetch(`${url}/posts/${id}`, {
+    method: "DELETE",
+  });
 }

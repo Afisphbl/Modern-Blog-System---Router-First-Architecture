@@ -1,16 +1,6 @@
 {
   "posts": [
     {
-      "id": "1",
-      "title": "Getting Started with React Router",
-      "content": "React Router enables client side routing. In V6, loader and action functions replace useEffect for data management, giving us a more robust router-first architecture.",
-      "category": "React",
-      "authorId": "1",
-      "author": "Ahmed",
-      "date": "2026-01-01",
-      "image": "https://picsum.photos/400/200?random=1"
-    },
-    {
       "id": "2",
       "title": "Why Tailwind CSS V4 is a Game Changer",
       "content": "Tailwind V4 brings CSS native variables directly into the compiler, dropping the need for tailwind.config.js and making modern styling faster and easier.",
@@ -29,17 +19,6 @@
       "author": "Sarah",
       "date": "2026-02-15",
       "image": "https://picsum.photos/400/200?random=3"
-    },
-    {
-      "title": "React P",
-      "author": "Zubeir",
-      "authorId": "VFrRQy9",
-      "category": "react",
-      "imageUrl": "",
-      "content": "Buy",
-      "image": "https://picsum.photos/400/200?random=8",
-      "date": "4/5/2026",
-      "id": "Z5kDqOz"
     }
   ],
   "authors": [
@@ -57,6 +36,11 @@
       "name": "Zubeir",
       "bio": "Buy",
       "id": "VFrRQy9"
+    },
+    {
+      "name": "Abduselam Seid",
+      "bio": "Contact Project is React Router project that demonestrate how to use createBrowserRouter and css",
+      "id": "dp7_GWn"
     }
   ]
 }

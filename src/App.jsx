@@ -8,10 +8,15 @@ import LoadingSpinner from "./components/Loading/LoadingSpinner";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import PostDetail, {
   loader as postLoader,
+  action as deleteAction,
 } from "./pages/PostDetail/PostDetail";
 import CreatePost, {
   action as createPostAction,
 } from "./pages/CreatePost/CreatePost";
+import EditPost, {
+  loader as editPostLoader,
+  action as editPostAction,
+} from "./pages/EditPost/EditPost";
 
 const router = createBrowserRouter([
   {
@@ -34,7 +39,15 @@ const router = createBrowserRouter([
         path: "/posts/:postId",
         element: <PostDetail />,
         loader: postLoader,
+        action: deleteAction,
         errorElement: <ErrorMessage />,
+      },
+      {
+        path: `/posts/:postId/edit`,
+        element: <EditPost />,
+        errorElement: <ErrorMessage />,
+        loader: editPostLoader,
+        action: editPostAction,
       },
       {
         path: "posts/new",

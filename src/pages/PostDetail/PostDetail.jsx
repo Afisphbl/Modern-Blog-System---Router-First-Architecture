@@ -1,14 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import "./PostDetails.css";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, redirect, useLoaderData, useSubmit } from "react-router-dom";
 import { ArrowLeft, Calendar, SquarePen, Trash, User } from "lucide-react";
-import { getPostById } from "../../api/postsApi";
+import { deletePost, getPostById } from "../../api/postsApi";
+import ConfirmDialog from "../../components/ConfirDialog/ConfirmDialog";
 
 function PostDetail() {
   const post = useLoaderData();
+  const submit = useSubmit();
+  const [isConfirm, setIsConfirm] = useState(false);
+
+  function handleDelete() {
+    setIsConfirm((prev) => !prev);
+  }
+
+  function onClose() {
+    setIsConfirm((prev) => !prev);
+  }
+
+  function onConfirmDelete() {
+    submit(null, { method: "delete" });
+  }
 
   return (
     <div className="post-details-container">
+      {isConfirm && (
+        <ConfirmDialog
+          isOpen={isConfirm}
+          onClose={onClose}
+          onConfirm={onConfirmDelete}
+          title="Delete Post"
+          message="Are you sure you want to delete this post? This action cannot be undone."
+        />
+      )}
       <div className="post-details-back">
         <Link to="/posts" className="back-link">
           <ArrowLeft size={20} className="back-icon" />
@@ -38,11 +62,11 @@ function PostDetail() {
             </div>
           </div>
           <div className="post-details-actions">
-            <button className="action-edit">
+            <Link to={`/posts/${post.id}/edit`} className="action-edit">
               <SquarePen size={16} />
               Edit
-            </button>
-            <button className="action-delete">
+            </Link>
+            <button className="action-delete" onClick={handleDelete}>
               <Trash size={16} />
               Delete
             </button>
@@ -69,6 +93,14 @@ export async function loader({ params }) {
   const { postId } = params;
   const data = await getPostById(postId);
   return data;
+}
+
+export async function action({ params }) {
+  const { postId } = params;
+
+  await deletePost(postId);
+
+  return redirect("/posts");
 }
 
 export default PostDetail;

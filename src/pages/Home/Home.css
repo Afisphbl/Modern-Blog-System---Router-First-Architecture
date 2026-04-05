@@ -31,7 +31,11 @@
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom right, color-mix(in srgb, var(--primary) 10%, transparent), transparent);
+  background: linear-gradient(
+    to bottom right,
+    color-mix(in srgb, var(--primary) 10%, transparent),
+    transparent
+  );
 }
 
 .hero-content {
@@ -108,6 +112,12 @@
   background-color: color-mix(in srgb, var(--primary) 90%, black);
   box-shadow: var(--shadow-xl);
   transform: translateY(-2px);
+}
+
+.hero-cta:focus-visible,
+.view-all-link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
 }
 
 .featured-section {

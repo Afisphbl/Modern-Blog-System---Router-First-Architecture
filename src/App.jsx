@@ -4,6 +4,7 @@ import AppLayout from "./router/AppLayout";
 import Home, { loader as homeLoader } from "./pages/Home/Home";
 import Posts from "./pages/Posts/Posts";
 import Authors from "./pages/Authors/Authors";
+import LoadingSpinner from "./components/Loading/LoadingSpinner";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 
 const router = createBrowserRouter([
@@ -30,7 +31,9 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <RouterProvider router={router} fallbackElement={<LoadingSpinner />} />
+  );
 }
 
 export default App;

@@ -1,11 +1,16 @@
 import { ArrowRight, BookOpen } from "lucide-react";
 
 import "./Home.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
 import PostList from "../../components/PostList/PostList";
 import { getPosts } from "../../api/postsApi";
+import LoadingSpinner from "../../components/Loading/LoadingSpinner";
 
 function Home() {
+  const { state } = useNavigation();
+
+  if (state === "loading") return <LoadingSpinner />;
+
   return (
     <div className="home-container">
       <div className="hero-section">

@@ -15,13 +15,17 @@ function Navbar() {
         <div className="navbar-links">
           <NavLink
             to="/posts"
-            className={`navbar-link ${({ isActive }) => (isActive ? "active" : "")}`}
+            className={({ isActive }) =>
+              `navbar-link ${isActive ? "active" : ""}`
+            }
           >
             Posts
           </NavLink>
           <NavLink
             to="/authors"
-            className={`navbar-link ${({ isActive }) => (isActive ? "active" : "")}`}
+            className={({ isActive }) =>
+              `navbar-link ${isActive ? "active" : ""}`
+            }
           >
             <User size={20} />
             Profile

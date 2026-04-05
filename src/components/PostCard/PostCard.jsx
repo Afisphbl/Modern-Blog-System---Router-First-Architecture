@@ -17,7 +17,13 @@ function PostCard({
   return (
     <div className="post-card">
       <Link to={`/posts/${id}`} className="post-card-image-link">
-        <img src={image} alt={title} className="post-card-image" />
+        <img
+          src={image}
+          alt={title}
+          className="post-card-image"
+          loading="lazy"
+          decoding="async"
+        />
       </Link>
 
       <div className="post-card-content">

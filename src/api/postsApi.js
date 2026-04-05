@@ -8,7 +8,7 @@ export async function getPosts() {
     const data = await res.json();
     return data;
   } catch (error) {
-    console.log(`Error : ${error}`);
+    console.error(`Error : ${error}`);
     throw error;
   }
 }

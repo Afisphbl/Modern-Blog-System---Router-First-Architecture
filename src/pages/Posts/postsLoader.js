@@ -5,13 +5,27 @@ export async function postsLoader({ request }) {
   const selectedCategory = (
     requestUrl.searchParams.get("category") || "all"
   ).toLowerCase();
+  const searchQuery = (requestUrl.searchParams.get("q") || "")
+    .toLowerCase()
+    .trim();
   const posts = await getPosts();
 
-  if (selectedCategory === "all") {
-    return posts;
+  let filteredPosts = posts;
+
+  if (selectedCategory !== "all") {
+    filteredPosts = filteredPosts.filter(
+      (post) => post.category?.toLowerCase() === selectedCategory,
+    );
   }
 
-  return posts.filter(
-    (post) => post.category?.toLowerCase() === selectedCategory,
-  );
+  if (searchQuery) {
+    filteredPosts = filteredPosts.filter(
+      (post) =>
+        post.title?.toLowerCase().includes(searchQuery) ||
+        post.content?.toLowerCase().includes(searchQuery) ||
+        post.author?.toLowerCase().includes(searchQuery),
+    );
+  }
+
+  return filteredPosts;
 }

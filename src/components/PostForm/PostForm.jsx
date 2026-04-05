@@ -1,9 +1,17 @@
 import React from "react";
 import "./PostForm.css";
-import { Form, useLoaderData } from "react-router-dom";
+import {
+  Form,
+  useLoaderData,
+  useNavigate,
+  useNavigation,
+} from "react-router-dom";
+import { Loader } from "lucide-react";
 
 function PostForm({ pageHead = "Create New Post", authorName = true }) {
   const post = useLoaderData();
+  const { state } = useNavigation();
+  const navigate = useNavigate();
   return (
     <div className="post-form-container">
       <h3 className="post-form-title">{pageHead}</h3>
@@ -53,7 +61,7 @@ function PostForm({ pageHead = "Create New Post", authorName = true }) {
               className="form-input"
               required
               title="Please fill out this filled"
-              defaultValue={String(post.category ?? "").toLowerCase()}
+              defaultValue={String(post?.category ?? "").toLowerCase()}
             >
               <option value="">Select category</option>
               <option value="react">React</option>
@@ -97,10 +105,21 @@ function PostForm({ pageHead = "Create New Post", authorName = true }) {
         </div>
 
         <div className="form-actions">
-          <button type="submit" className="form-btn-submit">
-            Submit Post
+          <button
+            type="submit"
+            className="form-btn-submit"
+            disabled={state === "loading"}
+          >
+            {state === "loading" && (
+              <Loader size={16} className="form-btn-spinner" />
+            )}
+            {state === "loading" ? "Submitting..." : "Submit Post"}
           </button>
-          <button type="reset" className="form-btn-cancel">
+          <button
+            type="button"
+            className="form-btn-cancel"
+            onClick={() => navigate(-1)}
+          >
             Cancel
           </button>
         </div>

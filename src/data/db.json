@@ -12,9 +12,9 @@
     },
     {
       "id": "3",
-      "title": "Modern JavaScript Features",
+      "title": "Modern JavaScript Features v2",
       "content": "Exploring the latest ECMAScript features that make writing JavaScript cleaner and more expressive than ever before.",
-      "category": "JavaScript",
+      "category": "javascript",
       "authorId": "2",
       "author": "Sarah",
       "date": "2026-02-15",

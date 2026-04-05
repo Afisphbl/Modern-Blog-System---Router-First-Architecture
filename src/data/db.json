@@ -1,0 +1,46 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Getting Started with React Router",
+      "content": "React Router enables client side routing. In V6, loader and action functions replace useEffect for data management, giving us a more robust router-first architecture.",
+      "category": "React",
+      "authorId": "1",
+      "author": "Ahmed",
+      "date": "2026-01-01",
+      "image": "https://picsum.photos/400/200?random=1"
+    },
+    {
+      "id": "2",
+      "title": "Why Tailwind CSS V4 is a Game Changer",
+      "content": "Tailwind V4 brings CSS native variables directly into the compiler, dropping the need for tailwind.config.js and making modern styling faster and easier.",
+      "category": "CSS",
+      "authorId": "1",
+      "author": "Ahmed",
+      "date": "2026-01-10",
+      "image": "https://picsum.photos/400/200?random=2"
+    },
+    {
+      "id": "3",
+      "title": "Modern JavaScript Features",
+      "content": "Exploring the latest ECMAScript features that make writing JavaScript cleaner and more expressive than ever before.",
+      "category": "JavaScript",
+      "authorId": "2",
+      "author": "Sarah",
+      "date": "2026-02-15",
+      "image": "https://picsum.photos/400/200?random=3"
+    }
+  ],
+  "authors": [
+    {
+      "id": "1",
+      "name": "Ahmed",
+      "bio": "Frontend developer passionate about modern web technologies."
+    },
+    {
+      "id": "2",
+      "name": "Sarah",
+      "bio": "Full-stack engineer focusing on resilient architecture."
+    }
+  ]
+}

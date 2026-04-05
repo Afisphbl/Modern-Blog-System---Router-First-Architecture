@@ -1,0 +1,30 @@
+.footer {
+  width: 100%;
+  border-top: 1px solid var(--border);
+  background-color: var(--card);
+  margin-top: auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer-title {
+  font-weight: 700;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: var(--foreground);
+}
+
+.footer-subtitle {
+  color: var(--muted-foreground);
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.footer-copyright {
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--muted-foreground) 60%, transparent);
+}

@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./router/AppLayout";
 import Home, { loader as homeLoader } from "./pages/Home/Home";
 import Posts from "./pages/Posts/Posts";
+import { postsLoader } from "./pages/Posts/postsLoader";
 import Authors from "./pages/Authors/Authors";
 import LoadingSpinner from "./components/Loading/LoadingSpinner";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       {
         path: "/posts",
         element: <Posts />,
+        loader: postsLoader,
       },
       {
         path: "/authors",

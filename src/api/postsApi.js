@@ -1,4 +1,5 @@
-const url = "http://localhost:3001";
+// const url = "http://localhost:3001";
+const url = import.meta.env.VITE_BASE_URL;
 
 export async function getPosts() {
   try {

@@ -1,0 +1,19 @@
+.author-page-container {
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.author-page-content {
+  margin-top: 3rem;
+}
+
+.author-page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+  border-bottom: 2px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}

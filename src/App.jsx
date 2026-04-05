@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./router/AppLayout";
 import Home, { loader as homeLoader } from "./pages/Home/Home";
 import Posts, { loader as postsLoader } from "./pages/Posts/Posts";
-import Authors from "./pages/Authors/Authors";
+import Authors, { loader as authorLoader } from "./pages/Authors/Author";
 import LoadingSpinner from "./components/Loading/LoadingSpinner";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import PostDetail, {
@@ -34,8 +34,9 @@ const router = createBrowserRouter([
         errorElement: <ErrorMessage />,
       },
       {
-        path: "/authors",
+        path: "/authors/:authorId",
         element: <Authors />,
+        loader: authorLoader,
         errorElement: <ErrorMessage />,
       },
     ],

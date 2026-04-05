@@ -29,8 +29,8 @@ export async function action({ request }) {
     bio: data.content,
   };
 
-  const newPost = await sendPost(newDataPost);
-  await sendAuthor(newDataAuthor);
+  const newAuthor = await sendAuthor(newDataAuthor);
+  const newPost = await sendPost({ ...newDataPost, authorId: newAuthor.id });
   return redirect(`/posts/${newPost.id}`);
 }
 

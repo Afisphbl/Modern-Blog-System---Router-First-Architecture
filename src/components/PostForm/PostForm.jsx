@@ -40,23 +40,6 @@ function PostForm() {
           </div>
 
           <div>
-            <label htmlFor="post-author-id" className="form-label">
-              Author ID
-            </label>
-            <input
-              type="text"
-              id="authorId"
-              name="authorId"
-              className="form-input"
-              placeholder="12345"
-              required
-              title="Please fill out this filled"
-            />
-          </div>
-        </div>
-
-        <div className="form-group form-grid">
-          <div>
             <label htmlFor="post-category" className="form-label">
               Category
             </label>
@@ -75,7 +58,9 @@ function PostForm() {
               <option value="career">Career</option>
             </select>
           </div>
+        </div>
 
+        <div className="form-group">
           <div>
             <label htmlFor="post-image-url" className="form-label">
               Image URL

@@ -18,7 +18,7 @@ function AuthorPage() {
           {postsNumber === 1 ? "" : ` (${postsNumber})`}
         </h1>
 
-        {author.posts.length && (
+        {author.posts.length > 0 && (
           <div className="post-list-grid">
             {author.posts.map((post) => (
               <PostCard key={post.id} {...post} />

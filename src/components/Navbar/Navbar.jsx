@@ -22,7 +22,7 @@ function Navbar() {
             Posts
           </NavLink>
           <NavLink
-            to="/authors"
+            to="/authors/1"
             className={({ isActive }) =>
               `navbar-link ${isActive ? "active" : ""}`
             }

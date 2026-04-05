@@ -27,7 +27,6 @@ export async function getPostById(postId) {
 }
 
 export async function updatePost(newPost) {
-  console.log(newPost.id);
   try {
     const res = await fetch(`${url}/posts/${newPost.id}`, {
       method: "PATCH",
@@ -67,7 +66,13 @@ export async function sendPost(post) {
 }
 
 export async function deletePost(id) {
-  await fetch(`${url}/posts/${id}`, {
-    method: "DELETE",
-  });
+  try {
+    const res = await fetch(`${url}/posts/${id}`, {
+      method: "DELETE",
+    });
+    if (!res.ok) throw new Error("Something went wrong when deleting the post");
+  } catch (error) {
+    console.error(`Error : ${error}`);
+    throw error;
+  }
 }

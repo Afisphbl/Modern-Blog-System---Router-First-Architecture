@@ -1,8 +1,9 @@
 import React from "react";
 import "./PostForm.css";
-import { Form } from "react-router-dom";
+import { Form, useLoaderData } from "react-router-dom";
 
 function PostForm({ pageHead = "Create New Post", authorName = true }) {
+  const post = useLoaderData();
   return (
     <div className="post-form-container">
       <h3 className="post-form-title">{pageHead}</h3>
@@ -20,6 +21,7 @@ function PostForm({ pageHead = "Create New Post", authorName = true }) {
             placeholder="Enter post title"
             required
             title="Please fill out this filled"
+            defaultValue={post?.title || ""}
           />
         </div>
 
@@ -51,6 +53,7 @@ function PostForm({ pageHead = "Create New Post", authorName = true }) {
               className="form-input"
               required
               title="Please fill out this filled"
+              defaultValue={String(post.category ?? "").toLowerCase()}
             >
               <option value="">Select category</option>
               <option value="react">React</option>
@@ -64,7 +67,7 @@ function PostForm({ pageHead = "Create New Post", authorName = true }) {
 
         <div className="form-group">
           <div>
-            <label htmlFor="post-image-url" className="form-label">
+            <label htmlFor="image" className="form-label">
               Image URL
             </label>
             <input
@@ -73,6 +76,7 @@ function PostForm({ pageHead = "Create New Post", authorName = true }) {
               name="image"
               className="form-input"
               placeholder="https://example.com/image.jpg"
+              defaultValue={post?.image || ""}
             />
           </div>
         </div>
@@ -88,6 +92,7 @@ function PostForm({ pageHead = "Create New Post", authorName = true }) {
             placeholder="Write your post content here..."
             required
             title="Please fill out this filled"
+            defaultValue={post?.content || ""}
           ></textarea>
         </div>
 

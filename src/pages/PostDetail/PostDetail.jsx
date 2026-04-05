@@ -11,11 +11,11 @@ function PostDetail() {
   const [isConfirm, setIsConfirm] = useState(false);
 
   function handleDelete() {
-    setIsConfirm((prev) => !prev);
+    setIsConfirm(true);
   }
 
   function onClose() {
-    setIsConfirm((prev) => !prev);
+    setIsConfirm(false);
   }
 
   function onConfirmDelete() {
@@ -98,7 +98,10 @@ export async function loader({ params }) {
 export async function action({ params }) {
   const { postId } = params;
 
-  await deletePost(postId);
+  const response = await deletePost(postId);
+  if (!response.ok) {
+    throw new Response("Failed to delete post", { status: response.status });
+  }
 
   return redirect("/posts");
 }

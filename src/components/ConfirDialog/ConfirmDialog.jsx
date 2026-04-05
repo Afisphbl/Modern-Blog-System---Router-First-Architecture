@@ -1,8 +1,19 @@
-import { Trash } from 'lucide-react';
-import './ConfirmDialog.css';
+import { Trash } from "lucide-react";
+import "./ConfirmDialog.css";
 
-export default function ConfirmDialog({ isOpen, onClose, onConfirm, title, message }) {
+export default function ConfirmDialog({
+  isOpen,
+  onClose,
+  onConfirm,
+  title,
+  message,
+}) {
   if (!isOpen) return null;
+
+  const handleConfirm = async () => {
+    await onConfirm();
+    onClose();
+  };
 
   return (
     <div className="confirm-overlay">
@@ -11,23 +22,18 @@ export default function ConfirmDialog({ isOpen, onClose, onConfirm, title, messa
           <Trash className="confirm-icon" />
           {title}
         </h3>
-        <p className="confirm-message">
-          {message}
-        </p>
+        <p className="confirm-message">{message}</p>
         <div className="confirm-actions">
-          <button 
-            type="button" 
+          <button
+            type="button"
             onClick={onClose}
             className="confirm-btn-cancel"
           >
             Cancel
           </button>
-          <button 
-            type="button" 
-            onClick={() => {
-              onConfirm();
-              onClose();
-            }}
+          <button
+            type="button"
+            onClick={handleConfirm}
             className="confirm-btn-danger"
           >
             Delete
